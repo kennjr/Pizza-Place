@@ -6,19 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha384-S58meLBGKxIiQmJ/pJ8ilvFUcGcqgla+mWH9EEKGm6i6rKxSTA2kpXJQJ8n7XK4w" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
     <title>Pizza Place</title>
 </head>
 <body>
     <div class="container">
         <div class="topnav">
-            <a id="home_id" href="#home_section_id">Home</a>
-            <a id="popular_id" href="#popular_section_id">Projects</a>
-            <a id="classic_id" href="#classic_section_id">Skills</a>
-            <a id="order_id" href="#order_section_id">Interests</a>
-            <a id="about_id" href="#about_section_id">Background</a>
+            <div class="home_div">
+                <img id="home_icon" src="images/home_icon.png" alt="Go back to top of site image"width="30px" height="30px">
+                <a id="home_id"><strong>Pizza Place</strong></a>
+            </div>
+            <div class="site_destinations">
+                <a id="popular_id" href="#popular_section_id">Popular</a>
+                <a id="classic_id" href="#classic_section_id">Classics</a>
+                <a id="order_id" href="#order_section_id">Order</a>
+                <a id="about_id" href="#about_section_id">About</a>
+            </div>
         </div>
-        <div id="home_section_id">
-
+        <div class="home_section" id="home_section_id">
+            <div class="chef_img_section">
+                <img src="images/chef_img.png" alt="Chef D" width="300px" height="300px">
+            </div>
+            
+            <div class="messages_section">
+                <p id="chefs_message">Get 'em fresh 'n hot, straight out the oven. Only at Pizza Place</p>
+                <p>from Chef D.</p>
+            </div>
         </div> 
         <div id="popular_section_id">
 
