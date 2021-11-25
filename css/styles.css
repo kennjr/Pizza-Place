@@ -1,0 +1,28 @@
+.topnav {
+    background-color: #ebebeb;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: end;
+    padding: 15px;
+}
+
+/* styling links in the nav_bar */
+.topnav a {
+    color: #000;
+    text-align: end;
+    padding: 16px 18px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Change the color of a link item if the user hovers arnd it */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Give current or clicked item diff color */
+.topnav a.active {
+    background-color: #ff5222;
+    color: white;
+}
