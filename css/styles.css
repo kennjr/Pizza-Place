@@ -96,8 +96,15 @@
     text-align: start;
 }
 
+/* The actual message from the chef */
 #chefs_message{
     font-size: 38px;
+    text-align: start;
+}
+
+/* The from chef d string */
+#from_string_id{
+    margin-left: 5px;
     text-align: start;
 }
 
@@ -107,6 +114,8 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 #popular_section_id > h3{
@@ -154,4 +163,13 @@
     font-size: 16px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+#classic_section_id{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
