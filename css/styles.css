@@ -104,6 +104,17 @@
 /* ************************************CHANGE THIS FOR SMALLER SCREENS******************************** */
 #popular_section_id{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#popular_section_id > h3{
+    font-size: 20px;
+}
+
+.popular_pizzas_items{
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
@@ -120,7 +131,7 @@
     width: 40%;
     border-radius: 5px;
     cursor: pointer;
-    
+    text-align: start;    
 }
 
 .popular_pizza:hover{
