@@ -120,6 +120,14 @@
             <div class="new_order_form_section">
                 <p id="new_order_text">New Order</p>
                 <form class="order_form">
+                    <label for="pizza_sizes_list">Pizza size :</label>
+                    <select name="dropdown" class="dropdown_list" id="pizza_sizes_dropdown_list">
+                        <option value="choose_a_pizza_size">Choose a size for your pizza</option>
+                        <option value="small_pizza">Small (20cm) -> ksh 450</option>
+                        <option value="medium_pizza">Medium (25cm) -> ksh 600</option>
+                        <option value="large_pizza">Large (30cm) -> ksh 800</option>
+                        <option value="x_large_pizza">Extra large (36cm) -> ksh 1000</option>
+                    </select>
                     <label for="crusts_list">Crust :</label>
                     <select name="dropdown" class="dropdown_list" id="crusts_dropdown_list">
                         <option value="choose_a_crust">Choose a crust</option>
@@ -132,10 +140,20 @@
                     <label for="pizzas_list">Pizza :</label>
                     <select name="dropdown" class="dropdown_list" id="pizzas_dropdown_list">
                         <option value="choose_a_pizza">Choose a pizza</option>
+                        <option value="boerewors_pizza">Boerewors pizza  ->  ksh 800</option>
+                        <option value="bbq_chicken_pizza">Chicken BBQ pizza  ->  ksh 800</option>
+                        <option value="pepperoni_pizza">Pepperoni pizza  ->  ksh 800</option>
+                        <option value="margharita_pizza">Margharita pizza  ->  ksh 800</option>
+                        <option value="beef_steak_pizza">Beef Steak pizza  ->  ksh 800</option>
+                        <option value="hawaiian_pizza">Hawaiian pizza  ->  ksh 800</option>
+                        <option value="veggie_pizza">Veggie pizza  ->  ksh 800</option>
                     </select>
                     <label for="extra_cheese_list">Extra cheese :</label>
                     <select name="dropdown" class="dropdown_list" id="extra_cheese_dropdown_list">
                         <option value="add_extra_cheese">Cheese up your pizza</option>
+                        <option value="cheddar_cheese">Cheddar cheese  ->  ksh 300</option>
+                        <option value="feta_cheese">Feta cheese  ->  ksh 300</option>
+                        <option value="mozzarella_cheese">Mozzarella cheese  ->  ksh 350</option>
                     </select>
                     <label for="extra_meat_list">Extra meat :</label>
                     <select name="dropdown" class="dropdown_list" id="extra_meat_dropdown_list">
