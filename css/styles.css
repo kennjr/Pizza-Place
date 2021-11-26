@@ -173,3 +173,85 @@
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+/* **********************MAKE ELEMENTS ALIGN VERTICALLY ON SMALLER SCREENS******************** */
+#order_section_id{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 50px;
+}
+
+.new_order_form_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: end;
+    padding: 20px;
+    background-color: #FFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    flex: 6;
+    border-radius: 5px;
+}
+
+.new_order_form_section > p{
+    align-self: flex-end;
+    padding: 10px;
+    background-color: #ff003f;
+    border-radius: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.billing_section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 4;
+}
+
+.delivery_info_dialog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    background-color: #FFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%;
+    align-self: center;
+    border-radius: 5px;
+}
+
+.cart_details_dialog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #FFF;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%;
+    align-self: center;
+    border-radius: 5px;
+}
+
+/* For the top part of the total section */
+.total_amt_text{
+    background-color: #ff003f;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    justify-content: space-between;
+}
+
+/* For the elements in the order form */
+.order_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: start;
+}
