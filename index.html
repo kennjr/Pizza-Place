@@ -180,16 +180,32 @@
                         <option value="fanta_orange">Fanta Orange (500ml)  ->  ksh 150</option>
                         <option value="sprite">Sprite (500ml)  ->  ksh 150</option>
                     </select>
+
+                    <button id="add_delivery_location_btn" type="submit">+  Add pizza to cart</button>
                 </form>
             </div>
             <div class="billing_section">
                 <div class="delivery_info_dialog">
-
+                    <p>Delivery (Optional)</p>
+                    <input type="text" name="location" id="delivery_location_edt" placeholder="Delivery location">
+                    <p id="add_delivery_location_btn">Add delivery location</p>
                 </div>
                 <div class="cart_details_dialog">
                     <div class="total_amt_text">
                         <p>Total</p>
-                        <p>3500</p>
+                        <p id="total_amt_string">5300</p>
+                    </div>
+                    <div class="pizza_order_details" id="total_pizzas_cost_text">
+                        <p class="pizza_single_detail_description" id="number_of_pizzas_string">2 pizzas (large pepperoni, medium boerewors)</p>
+                        <p class="pizza_single_detail_total" id="total_pizzas_cost_string">4500</p>
+                    </div>
+                    <div class="pizza_order_details" id="delivery_cost_text">
+                        <p class="pizza_single_detail_description">Delivery fee</p>
+                        <p class="pizza_single_detail_total" id="delivery_cost_string">300</p>
+                    </div>
+                    <div class="pizza_order_details" id="vat_cost_text">
+                        <p class="pizza_single_detail_description">VAT</p>
+                        <p class="pizza_single_detail_total" id="vat_cost_string">500</p>
                     </div>
                 </div>
             </div>
