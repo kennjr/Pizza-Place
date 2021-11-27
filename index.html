@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha384-S58meLBGKxIiQmJ/pJ8ilvFUcGcqgla+mWH9EEKGm6i6rKxSTA2kpXJQJ8n7XK4w" crossorigin="anonymous"></script>
+    
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <title>Pizza Place</title>
@@ -122,15 +123,15 @@
                 <form class="order_form">
                     <label for="pizza_sizes_list">Pizza size :</label>
                     <select name="dropdown" class="dropdown_list" id="pizza_sizes_dropdown_list">
-                        <option value="choose_a_pizza_size">Choose a size for your pizza</option>
-                        <option value="small_pizza">Small (20cm) -> ksh 450</option>
-                        <option value="medium_pizza">Medium (25cm) -> ksh 600</option>
-                        <option value="large_pizza">Large (30cm) -> ksh 800</option>
-                        <option value="x_large_pizza">Extra large (36cm) -> ksh 1000</option>
+                        <option value="0">Choose a size for your pizza</option>
+                        <option value="small_pizza">Small (20cm)</option>
+                        <option value="medium_pizza">Medium (25cm)</option>
+                        <option value="large_pizza">Large (30cm)</option>
+                        <option value="x_large_pizza">Extra large (36cm)</option>
                     </select>
                     <label for="crusts_list">Crust :</label>
                     <select name="dropdown" class="dropdown_list" id="crusts_dropdown_list">
-                        <option value="choose_a_crust">Choose a crust</option>
+                        <option value="0">Choose a crust</option>
                         <option value="crispy_crust">Crispy</option>
                         <option value="stuffed_crust">Stuffed</option>
                         <option value="thin_crust">Thin</option>
@@ -138,42 +139,42 @@
                         <option value="gluten_free_crust">Gluten free</option>
                     </select>
                     <label for="pizzas_list">Pizza :</label>
-                    <select name="dropdown" class="dropdown_list" id="pizzas_dropdown_list">
-                        <option value="choose_a_pizza">Choose a pizza</option>
-                        <option value="boerewors_pizza">Boerewors pizza  ->  ksh 800</option>
-                        <option value="bbq_chicken_pizza">Chicken BBQ pizza  ->  ksh 800</option>
-                        <option value="pepperoni_pizza">Pepperoni pizza  ->  ksh 800</option>
-                        <option value="margharita_pizza">Margharita pizza  ->  ksh 800</option>
-                        <option value="beef_steak_pizza">Beef Steak pizza  ->  ksh 800</option>
-                        <option value="hawaiian_pizza">Hawaiian pizza  ->  ksh 800</option>
-                        <option value="veggie_pizza">Veggie pizza  ->  ksh 800</option>
+                    <select name="dropdown" class="dropdown_list" id="pizza_types_dropdown_list">
+                        <option value="0">Choose a pizza</option>
+                        <option value="boerewors_pizza">Boerewors pizza</option>
+                        <option value="bbq_chicken_pizza">Chicken BBQ pizza</option>
+                        <option value="pepperoni_pizza">Pepperoni pizza</option>
+                        <option value="margharita_pizza">Margharita pizza</option>
+                        <option value="beef_steak_pizza">Beef Steak pizza</option>
+                        <option value="hawaiian_pizza">Hawaiian pizza</option>
+                        <option value="veggie_pizza">Veggie pizza</option>
                     </select>
                     <label for="extra_cheese_list">Extra cheese :</label>
                     <select name="dropdown" class="dropdown_list" id="extra_cheese_dropdown_list">
-                        <option value="add_extra_cheese">Cheese up your pizza</option>
-                        <option value="cheddar_cheese">Cheddar cheese  ->  ksh 300</option>
-                        <option value="feta_cheese">Feta cheese  ->  ksh 300</option>
-                        <option value="mozzarella_cheese">Mozzarella cheese  ->  ksh 350</option>
+                        <option value="0">Cheese up your pizza</option>
+                        <option value="cheddar_cheese">Cheddar cheese</option>
+                        <option value="feta_cheese">Feta cheese</option>
+                        <option value="mozzarella_cheese">Mozzarella cheese</option>
                     </select>
                     <label for="extra_meat_list">Extra meat :</label>
                     <select name="dropdown" class="dropdown_list" id="extra_meat_dropdown_list">
-                        <option value="add_extra_meat">Add extra meat</option>
-                        <option value="boerewors">Boerewors  ->  ksh 500</option>
-                        <option value="Pepperoni">Pepperoni  ->  ksh 500</option>
-                        <option value="chicken">Chicken  ->  ksh 500</option>
-                        <option value="beef_steak">Beef Steak  ->  ksh 500</option>
+                        <option value="0">Add extra meat</option>
+                        <option value="boerewors">Boerewors</option>
+                        <option value="pepperoni">Pepperoni</option>
+                        <option value="chicken">Chicken</option>
+                        <option value="beef_steak">Beef Steak</option>
                     </select>
                     <label for="extra_veggies_list">Extra veggies :</label>
                     <select name="dropdown" class="dropdown_list" id="extra_veggies_dropdown_list">
-                        <option value="add_extra_veggies">Add extra veggies</option>
-                        <option value="green_peppers">Green Peppers  ->  ksh 350</option>
-                        <option value="red_peppers">Red Peppers  ->  ksh 350</option>
-                        <option value="red_onions">Red Onions  ->  ksh 350</option>
-                        <option value="mushrooms">Mushrooms  ->  ksh 350</option>                        
+                        <option value="0">Add extra veggies</option>
+                        <option value="green_peppers">Green Peppers</option>
+                        <option value="red_peppers">Red Peppers</option>
+                        <option value="red_onions">Red Onions</option>
+                        <option value="mushrooms">Mushrooms</option>                        
                     </select>
                     <label for="sides_list">Sides :</label>
                     <select name="dropdown" class="dropdown_list" id="sides_dropdown_list">
-                        <option value="add_sides">Pick a side for your pizza</option>
+                        <option value="0">Pick a side for your pizza</option>
                         <option value="pepsi_cola">Pepsi Cola (500ml)  ->  ksh 150</option>
                         <option value="mountain_dew">Mountain Dew (500ml)  ->  ksh 150</option>
                         <option value="coca_cola">Coca Cola (500ml)  ->  ksh 150</option>
@@ -181,32 +182,33 @@
                         <option value="sprite">Sprite (500ml)  ->  ksh 150</option>
                     </select>
 
-                    <button id="add_delivery_location_btn" type="submit">+  Add pizza to cart</button>
+                    <button class="text_btn_bg" type="submit">+  Add pizza to cart</button>
                 </form>
             </div>
             <div class="billing_section">
                 <div class="delivery_info_dialog">
                     <p>Delivery (Optional)</p>
                     <input type="text" name="location" id="delivery_location_edt" placeholder="Delivery location">
-                    <p id="add_delivery_location_btn">Add delivery location</p>
+                    <p id="add_delivery_location_btn" class="text_btn_bg">Add delivery location</p>
                 </div>
                 <div class="cart_details_dialog">
                     <div class="total_amt_text">
                         <p>Total</p>
-                        <p id="total_amt_string">5300</p>
+                        <p id="total_amt_string">00</p>
                     </div>
                     <div class="pizza_order_details" id="total_pizzas_cost_text">
-                        <p class="pizza_single_detail_description" id="number_of_pizzas_string">2 pizzas (large pepperoni, medium boerewors)</p>
-                        <p class="pizza_single_detail_total" id="total_pizzas_cost_string">4500</p>
+                        <p class="pizza_single_detail_description" id="number_of_pizzas_string">Empty cart</p>
+                        <p class="pizza_single_detail_total" id="total_pizzas_cost_string">00</p>
                     </div>
                     <div class="pizza_order_details" id="delivery_cost_text">
                         <p class="pizza_single_detail_description">Delivery fee</p>
-                        <p class="pizza_single_detail_total" id="delivery_cost_string">300</p>
+                        <p class="pizza_single_detail_total" id="delivery_cost_string">00</p>
                     </div>
                     <div class="pizza_order_details" id="vat_cost_text">
-                        <p class="pizza_single_detail_description">VAT</p>
-                        <p class="pizza_single_detail_total" id="vat_cost_string">500</p>
+                        <p class="pizza_single_detail_description">VAT(included in pricing)</p>
+                        <p class="pizza_single_detail_total" id="vat_cost_string">00</p>
                     </div>
+                    <p id="checkout_btn">Checkout</p>
                 </div>
             </div>
         </div>
