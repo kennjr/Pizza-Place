@@ -15,7 +15,10 @@ const x_largeExtraCost = 400;
 
 
 $(document).ready(() => {
-
+    var orderedPizzas = [];
+    let totalBill = 0;
+    let pizzasCost = 0;
+    let addedDeliveryFee = false;
     resetAllOptionLists(0);
     
 
@@ -67,25 +70,76 @@ $(document).ready(() => {
 
 
         var mPizza = new Pizza(pizzaSize, pizzaCrust, pizzaType, extraCheese, extraMeat, extraVeggie, side)
-        
-        
-        
+        console.log(mPizza);
+        let checkingPizza = validateOrder(mPizza)
+        if (checkingPizza.value == true) {
+            var costOfPizza = billPizza(mPizza);
+            console.log("The pizza costs ", costOfPizza);
+            
+            if(confirm("Add a " + mPizza.size +" " + mPizza.type +" to your cart?") == true){
+                orderedPizzas.push(mPizza);
+                totalBill += costOfPizza;
+                pizzasCost += costOfPizza;
+                document.getElementById("number_of_pizzas_string").innerHTML = orderedPizzas.length + " pizza(s)"
+                document.getElementById('total_pizzas_cost_string').innerHTML = pizzasCost.toString();
     
+                updateTotalBill(totalBill);
+            }   
+        }else{
+            alert(checkingPizza.string)
+        }
+        
+    })
+
+    $("#checkout_btn").on("click", () => {
+        
+    })
+
+    $("#add_delivery_location_btn").on("click", function() {
+        console.log("we getting the click")
+        if (confirm("We charge a flat delivery fee of 300, by clicking Ok the amount will be added to your bill") == true) {
+            addedDeliveryFee = true
+            totalBill += 300
+            document.getElementById('delivery_cost_string').innerHTML = 300;
+            updateTotalBill(totalBill);
+        }else{
+            // Check whether the user had added a delivery fee before, if so then remove the fee
+            if (addedDeliveryFee) {
+                addedDeliveryFee = false
+                totalBill -= 300
+                document.getElementById('delivery_cost_string').innerHTML = 00;
+                updateTotalBill(totalBill);
+            }
+        }
     })
     
 })
+
+function updateTotalBill (newTotal){
+    document.getElementById("total_amt_string").innerHTML = newTotal;
+}
 
 function resetAllOptionLists(index){
     $('.dropdown_list').prop('selectedIndex', index);
     return;
 }
 
-var validateOrder = (pizzaItem, nonValue) => {
-    if (pizzaItem == nonValue){
-        return false;
+var validateOrder = (pizzaItem) => {
+    if (pizzaItem.size == "0") {
+        var invalidOrder = new listItem(false, "You've not chosen a size for your pizza");
+        return invalidOrder;
+    }
+    else if (pizzaItem.type == "0") {
+        var invalidOrder = new listItem(false, "You've not chosen the type of pizza you'd like");
+        return invalidOrder;
+    }
+    else if (pizzaItem.crust == "0") {
+        var invalidOrder = new listItem(false, "You've not chosen a crust for your pizza");
+        return invalidOrder;
     }
     else{
-        return true;
+        var invalidOrder = new listItem(true, "Everything's good");
+        return invalidOrder;
     }
 }
 
@@ -96,8 +150,24 @@ function billPizza(pizza) {
         // Add the cost of the crust to the total
         total += crustCost
     }
-
-    // check if th
+    var typeCost = pizza.getTypeCost();
+    total += typeCost;
+    if (pizza.extra_cheese != "0") {
+        var costOfExtra = addCostOfExtra(pizza.size);
+        total += costOfExtra;
+    }
+    if (pizza.extra_meat != "0") {
+        var costOfExtra = addCostOfExtra(pizza.size);
+        total += costOfExtra;
+    }
+    if (pizza.extra_veggie != "0") {
+        var costOfExtra = addCostOfExtra(pizza.size);
+        total += costOfExtra;
+    }
+    if (pizza.side != "0") {
+        total += 150;
+    }
+    return total;
 
 }
 
@@ -112,6 +182,37 @@ Pizza.prototype.getCrustCost = function (){
             return largePizzaCrustCost;
         case "x_large_pizza":
             return x_largePizzaCrustCost;
+        default:
+            return 0;
+    }
+}
+
+// This prototype fun will give us the cost of the crust
+Pizza.prototype.getTypeCost = function (){
+    switch (this.size) {
+        case "small_pizza":
+            return smallPizzaTypeCost;
+        case "medium_pizza":
+            return mediumPizzaTypeCost;
+        case "large_pizza":
+            return largePizzaTypeCost;
+        case "x_large_pizza":
+            return x_largePizzaTypeCost;
+        default:
+            return 0;
+    }
+}
+
+function addCostOfExtra (pizzaSize){
+    switch (pizzaSize) {
+        case "small_pizza":
+            return smallExtraCost;
+        case "medium_pizza":
+            return mediumExtraCost;
+        case "large_pizza":
+            return largeExtraCost;
+        case "x_large_pizza":
+            return x_largeExtraCost;
         default:
             return 0;
     }
