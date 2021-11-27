@@ -82,6 +82,7 @@ $(document).ready(() => {
                 pizzasCost += costOfPizza;
                 document.getElementById("number_of_pizzas_string").innerHTML = orderedPizzas.length + " pizza(s)"
                 document.getElementById('total_pizzas_cost_string').innerHTML = pizzasCost.toString();
+                document.getElementById('vat_cost_string').innerHTML = getVAT(totalBill);
     
                 updateTotalBill(totalBill);
             }   
@@ -92,7 +93,7 @@ $(document).ready(() => {
     })
 
     $("#checkout_btn").on("click", () => {
-        
+        alert()
     })
 
     $("#add_delivery_location_btn").on("click", function() {
@@ -101,6 +102,7 @@ $(document).ready(() => {
             addedDeliveryFee = true
             totalBill += 300
             document.getElementById('delivery_cost_string').innerHTML = 300;
+            document.getElementById('vat_cost_string').innerHTML = getVAT(totalBill);
             updateTotalBill(totalBill);
         }else{
             // Check whether the user had added a delivery fee before, if so then remove the fee
@@ -108,6 +110,7 @@ $(document).ready(() => {
                 addedDeliveryFee = false
                 totalBill -= 300
                 document.getElementById('delivery_cost_string').innerHTML = 00;
+                document.getElementById('vat_cost_string').innerHTML = getVAT(totalBill);
                 updateTotalBill(totalBill);
             }
         }
@@ -117,6 +120,47 @@ $(document).ready(() => {
 
 function updateTotalBill (newTotal){
     document.getElementById("total_amt_string").innerHTML = newTotal;
+}
+
+var getVAT = (amount) => {
+    let vat = 0.16 * amount;
+    return vat
+}
+
+var getPizzaName = (pizza) => {
+    switch (pizza.type) {
+        case "boerewors_pizza":
+            return "Boerewors pizza";
+        case "bbq_chicken_pizza":
+            return "BBQ Chicken pizza";
+        case "pepperoni_pizza":
+            return "Pepperoni pizza";
+        case "margharita_pizza":
+            return "Margharita pizza";
+        case "beef_steak_pizza":
+            return "Beef Steak pizza";
+        case "hawaiian_pizza":
+            return "Hawaiian pizza";
+        case "veggie_pizza":
+            return "Veggie pizza";
+        default:
+            return "";
+    }
+}
+
+var getPizzaSize = (pizza) => {
+    switch (pizza.size) {
+        case "small_pizza":
+            return "Small";
+        case "medium_pizza":
+            return "Medium";
+        case "large_pizza":
+            return "Large";
+        case "x_large_pizza":
+            return "Extra large";
+        default:
+            return "";
+    }
 }
 
 function resetAllOptionLists(index){
