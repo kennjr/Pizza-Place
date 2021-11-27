@@ -5,18 +5,13 @@ $(document).ready(() => {
     document.getElementById("pizza_sizes_dropdown_list").addEventListener("change", (e) => {
         var pizzaSize = $("#pizza_sizes_dropdown_list").val()
         console.log(pizzaSize)
-        var checkPizzaSize = validateOrder(pizzaSize, "0")
         var mCrustOptions = pizzaCrustOptions(pizzaSize);
-                mCrustOptions.forEach((value, index) => {
-                    var myDLLField = $('select[id="crusts_dropdown_list"]');
-                    myDLLField.find('option[value="'+value.value+'"]').text(""+value.string+"");   
-                })
+        mCrustOptions.forEach((value, index) => {
+            var myDLLField = $('select[id="crusts_dropdown_list"]');
+            myDLLField.find('option[value="'+value.value+'"]').text(""+value.string+"");   
+        })
     })
-    $("#pizza_sizes_dropdown_list").bind( "slidechange", function(event, ui) {
-        // use ui.value for the value
-        
-    });
-
+    
     $(".order_form").submit((e) => {
         e.preventDefault();
 
@@ -156,7 +151,88 @@ function pizzaCrustOptions (pizzaSize){
     
 }
 
+function pizzaTypeOptions (pizzaSize){
+    var crustOptions = []
+    var firstItem = new listItem("0", "Choose a pizza");
+    var secondtItem = new listItem("boerewors_pizza", "Boerewors pizza");
+    var thirdItem = new listItem("bbq_chicken_pizza", "Chicken BBQ pizza");
+    var fourthItem = new listItem("pepperoni_pizza", "Pepperoni pizza");
+    var fifthtItem = new listItem("margharita_pizza", "Margharita pizza");
+    var seventhItem = new listItem("beef_steak_pizza", "Beef Steak pizza");
+    var eighthItem = new listItem("hawaiian_pizza", "Hawaiian pizza");
+    var ninthItem = new listItem("veggie_pizza", "Veggie pizza");
+    switch (pizzaSize) {
+        case "0":
+            crustOptions.push(firstItem, secondtItem, thirdItem, fourthItem, fifthtItem, sixthItem, seventhItem, eighthItem, ninthItem)
+            
+            return crustOptions;
+        case "small_pizza":
+            let smallPizzaTypeCost = "  ->  ksh 800"
 
+            firstItem.string = firstItem + smallPizzaTypeCost;
+            secondtItem.string = secondtItem + smallPizzaTypeCost;
+            thirdItem.string = thirdItem + smallPizzaTypeCost;
+            fourthItem.string = fourthItem + smallPizzaTypeCost;
+            fifthtItem.string = fifthtItem + smallPizzaTypeCost;
+            sixthItem.string = sixthItem + smallPizzaTypeCost;
+            seventhItem.string = seventhItem + smallPizzaTypeCost;
+            eighthItem.string = eighthItem + smallPizzaTypeCost;
+
+            crustOptions.push(firstItem, secondtItem, thirdItem, fourthItem, fifthtItem, sixthItem, seventhItem, eighthItem, ninthItem)
+            
+            return crustOptions;
+        case "medium_pizza":
+            let mediumPizzaTypeCost = "  ->  ksh 800"
+
+            firstItem.string = firstItem + mediumPizzaTypeCost;
+            secondtItem.string = secondtItem + mediumPizzaTypeCost;
+            thirdItem.string = thirdItem + mediumPizzaTypeCost;
+            fourthItem.string = fourthItem + mediumPizzaTypeCost;
+            fifthtItem.string = fifthtItem + mediumPizzaTypeCost;
+            sixthItem.string = sixthItem + mediumPizzaTypeCost;
+            seventhItem.string = seventhItem + mediumPizzaTypeCost;
+            eighthItem.string = eighthItem + mediumPizzaTypeCost;
+
+            crustOptions.push(firstItem, secondtItem, thirdItem, fourthItem, fifthtItem, sixthItem, seventhItem, eighthItem, ninthItem)
+            
+            return crustOptions;
+        case "large_pizza":
+            let largePizzaTypeCost = "  ->  ksh 800"
+
+            firstItem.string = firstItem + largePizzaTypeCost;
+            secondtItem.string = secondtItem + largePizzaTypeCost;
+            thirdItem.string = thirdItem + largePizzaTypeCost;
+            fourthItem.string = fourthItem + largePizzaTypeCost;
+            fifthtItem.string = fifthtItem + largePizzaTypeCost;
+            sixthItem.string = sixthItem + largePizzaTypeCost;
+            seventhItem.string = seventhItem + largePizzaTypeCost;
+            eighthItem.string = eighthItem + largePizzaTypeCost;
+
+            crustOptions.push(firstItem, secondtItem, thirdItem, fourthItem, fifthtItem, sixthItem, seventhItem, eighthItem, ninthItem)
+            
+            return crustOptions;
+        case "x_large_pizza":
+            let x_largePizzaTypeCost = "  ->  ksh 800"
+
+            firstItem.string = firstItem + x_largePizzaTypeCost;
+            secondtItem.string = secondtItem + x_largePizzaTypeCost;
+            thirdItem.string = thirdItem + x_largePizzaTypeCost;
+            fourthItem.string = fourthItem + x_largePizzaTypeCost;
+            fifthtItem.string = fifthtItem + x_largePizzaTypeCost;
+            sixthItem.string = sixthItem + x_largePizzaTypeCost;
+            seventhItem.string = seventhItem + x_largePizzaTypeCost;
+            eighthItem.string = eighthItem + x_largePizzaTypeCost;
+
+            crustOptions.push(firstItem, secondtItem, thirdItem, fourthItem, fifthtItem, sixthItem, seventhItem, eighthItem, ninthItem)
+            
+            return crustOptions;
+        default:
+            crustOptions.push(firstItem, secondtItem, thirdItem, fourthItem, fifthtItem, sixthItem, seventhItem, eighthItem, ninthItem)
+            
+            return crustOptions;
+    }
+    
+}
 
 function listItem (value, string){
     this.value = value;
