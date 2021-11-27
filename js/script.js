@@ -13,6 +13,9 @@ const mediumExtraCost = 200;
 const largeExtraCost = 300;
 const x_largeExtraCost = 400;
 
+// This is for the message slides that'll be at the top of the site 
+var slideIndex = 0;
+
 
 $(document).ready(() => {
     var orderedPizzas = [];
@@ -21,7 +24,7 @@ $(document).ready(() => {
     let pizzasInCart = []
     let addedDeliveryFee = false;
     resetAllOptionLists(0);
-    
+    showSlides()
 
     document.getElementById("pizza_sizes_dropdown_list").addEventListener("change", (e) => {
         var pizzaSize = $("#pizza_sizes_dropdown_list").val()
@@ -251,6 +254,28 @@ function billPizza(pizza) {
     }
     return total;
 
+}
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("single_message");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 5000); // Change image every 2 seconds
+} 
+
+// Thumbnail image controls
+function currentSlide(n) {
+    showSlides(slideIndex = n);
 }
 
 // This prototype fun will give us the cost of the crust
