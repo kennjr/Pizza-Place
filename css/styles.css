@@ -205,6 +205,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.new_order_form_section:hover > p{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
 .billing_section{
     display: flex;
     flex-direction: column;
@@ -223,6 +227,7 @@
     align-self: center;
     border-radius: 5px;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 #add_delivery_location_btn{
@@ -237,6 +242,10 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     cursor: pointer;
     border: none;
+}
+
+#add_delivery_location_btn:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .delivery_info_dialog > input{
@@ -259,6 +268,7 @@
     width: 80%;
     align-self: center;
     border-radius: 5px;
+    margin-top: 10px;
 }
 
 /* For the top part of the total section */
@@ -273,6 +283,20 @@
     border-top-left-radius: 5px;
     justify-content: space-between;
     
+}
+
+#checkout_btn{
+    align-self: center;
+    text-align: center;
+    background-color: #ff003f;
+    border-radius: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    border: none; 
 }
 
 /* For the elements in the order form */
