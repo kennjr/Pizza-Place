@@ -230,7 +230,7 @@
     margin-bottom: 10px;
 }
 
-#add_delivery_location_btn{
+.text_btn_bg{
     align-self: center;
     text-align: center;
     background-color: #ff003f;
@@ -244,7 +244,7 @@
     border: none;
 }
 
-#add_delivery_location_btn:hover {
+.text_btn_bg:hover {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 

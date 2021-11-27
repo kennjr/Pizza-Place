@@ -18,6 +18,7 @@ $(document).ready(() => {
     var orderedPizzas = [];
     let totalBill = 0;
     let pizzasCost = 0;
+    let pizzasInCart = []
     let addedDeliveryFee = false;
     resetAllOptionLists(0);
     
@@ -70,13 +71,13 @@ $(document).ready(() => {
 
 
         var mPizza = new Pizza(pizzaSize, pizzaCrust, pizzaType, extraCheese, extraMeat, extraVeggie, side)
-        console.log(mPizza);
         let checkingPizza = validateOrder(mPizza)
         if (checkingPizza.value == true) {
             var costOfPizza = billPizza(mPizza);
-            console.log("The pizza costs ", costOfPizza);
+            var pizzaCostInfo = new listItem(costOfPizza, getPizzaSize(mPizza) +" "+ getPizzaName(mPizza))
+            pizzasInCart.push(pizzaCostInfo);
             
-            if(confirm("Add a " + mPizza.size +" " + mPizza.type +" to your cart?") == true){
+            if(confirm("Add a " + getPizzaSize(mPizza) +" " + getPizzaName(mPizza) + " worth ksh " + costOfPizza +" to your cart?") == true){
                 orderedPizzas.push(mPizza);
                 totalBill += costOfPizza;
                 pizzasCost += costOfPizza;
@@ -93,27 +94,64 @@ $(document).ready(() => {
     })
 
     $("#checkout_btn").on("click", () => {
-        alert()
+        if (totalBill > 0 && orderedPizzas.length > 0) {
+            // the loop below will get all the items in the users cart
+            let pizzasOrderedString = "";
+            pizzasInCart.forEach((element, index) => {
+                pizzasOrderedString += element.string +" at ksh "+ element.value + "\n";
+            })
+            if (addedDeliveryFee) {
+                console.log("We appreciate your order of : " + pizzasOrderedString + "Delivery fee of : 300\n" + "\nTotaling :ksh " + totalBill + "\nWe'll notify you when the food is ready for delivery")
+                alert("We appreciate your order of : " + pizzasOrderedString + "Delivery fee of : 300\n" + "\nTotaling :ksh " + totalBill + "\nWe'll notify you when the food is ready for delivery");
+            }
+            else if (!addedDeliveryFee) {
+                console.log("We appreciate your order of : " + pizzasOrderedString + "\nTotaling : ksh " + totalBill + "\nWe'll notify you when the food is ready for pick up")
+                alert("We appreciate your order of : " + pizzasOrderedString + "\nTotaling : ksh " + totalBill +"\nWe'll notify you when the food is ready for pick up");
+            }
+
+            totalBill = 00;
+            pizzasCost = 00;
+            addedDeliveryFee = false;
+            orderedPizzas = [];
+
+            document.getElementById("number_of_pizzas_string").innerHTML = "Empty cart"
+            document.getElementById('total_pizzas_cost_string').innerHTML = "00";
+            document.getElementById('vat_cost_string').innerHTML = "00";
+            document.getElementById('delivery_cost_string').innerHTML = "00";
+
+            updateTotalBill(totalBill);
+            resetAllOptionLists(0);
+        }else{
+            alert("There's nothing in your cart, add atleast one pizza to your cart.")
+        }
+        
     })
 
     $("#add_delivery_location_btn").on("click", function() {
-        console.log("we getting the click")
-        if (confirm("We charge a flat delivery fee of 300, by clicking Ok the amount will be added to your bill") == true) {
-            addedDeliveryFee = true
-            totalBill += 300
-            document.getElementById('delivery_cost_string').innerHTML = 300;
-            document.getElementById('vat_cost_string').innerHTML = getVAT(totalBill);
-            updateTotalBill(totalBill);
-        }else{
-            // Check whether the user had added a delivery fee before, if so then remove the fee
-            if (addedDeliveryFee) {
-                addedDeliveryFee = false
-                totalBill -= 300
-                document.getElementById('delivery_cost_string').innerHTML = 00;
+        var location = $("#delivery_location_edt").val().trim()
+        if (location != "") {
+            if (confirm("A delivery fee of 300 will be charged for the food to be delivered at "+location+", by clicking Ok the amount will be added to your bill.") == true) {
+                addedDeliveryFee = true
+                totalBill += 300
+                document.getElementById('delivery_cost_string').innerHTML = 300;
                 document.getElementById('vat_cost_string').innerHTML = getVAT(totalBill);
                 updateTotalBill(totalBill);
-            }
+            }else{
+                // Check whether the user had added a delivery fee before, if so then remove the fee
+                if (addedDeliveryFee) {
+                    addedDeliveryFee = false
+                    totalBill -= 300
+                    document.getElementById('delivery_cost_string').innerHTML = 00;
+                    document.getElementById('vat_cost_string').innerHTML = getVAT(totalBill);
+                    updateTotalBill(totalBill);
+                }
+            }   
+        }else{
+            alert("Enter a location for the delivery")
         }
+    })
+    $("#new_order_text").on("click", () => {
+        resetAllOptionLists(0);
     })
     
 })
@@ -343,7 +381,7 @@ function pizzaTypeOptions (pizzaSize){
 
     var firstItem = new listItem("0", "Choose a pizza");
     var secondItem = new listItem("boerewors_pizza", "Boerewors pizza");
-    var thirdItem = new listItem("bbq_chicken_pizza", "Chicken BBQ pizza");
+    var thirdItem = new listItem("bbq_chicken_pizza", "BBQ Chicken pizza");
     var fourthItem = new listItem("pepperoni_pizza", "Pepperoni pizza");
     var fifthItem = new listItem("margharita_pizza", "Margharita pizza");
     var sixthItem = new listItem("beef_steak_pizza", "Beef Steak pizza");
