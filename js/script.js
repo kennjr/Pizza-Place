@@ -104,12 +104,10 @@ $(document).ready(() => {
                 pizzasOrderedString += element.string +" at ksh "+ element.value + "\n";
             })
             if (addedDeliveryFee) {
-                console.log("We appreciate your order of : " + pizzasOrderedString + "Delivery fee of : 300\n" + "\nTotaling :ksh " + totalBill + "\nWe'll notify you when the food is ready for delivery")
-                alert("We appreciate your order of : " + pizzasOrderedString + "Delivery fee of : 300\n" + "\nTotaling :ksh " + totalBill + "\nWe'll notify you when the food is ready for delivery");
+                alert("We appreciate your order(s) of : " + pizzasOrderedString + "Delivery fee of : 300\n" + "\nTotaling :ksh " + totalBill + "\nWe'll notify you when the food is ready for delivery");
             }
             else if (!addedDeliveryFee) {
-                console.log("We appreciate your order of : " + pizzasOrderedString + "\nTotaling : ksh " + totalBill + "\nWe'll notify you when the food is ready for pick up")
-                alert("We appreciate your order of : " + pizzasOrderedString + "\nTotaling : ksh " + totalBill +"\nWe'll notify you when the food is ready for pick up");
+                alert("We appreciate your order(s) of : " + pizzasOrderedString + "\nTotaling : ksh " + totalBill +"\nWe'll notify you when the food is ready for pick up");
             }
 
             totalBill = 00;
@@ -156,8 +154,56 @@ $(document).ready(() => {
     $("#new_order_text").on("click", () => {
         resetAllOptionLists(0);
     })
+
+    
     
 })
+
+function navigateToOrderSection (selectedPizzaId){
+    document.getElementById("order_form_id").scrollIntoView({behavior: 'smooth'});
+    var convertSelectedToPizzaType = getSelectedPizza(selectedPizzaId)
+    if (selectedPizzaId != "popular_pizza_1") {
+        // document.querySelector('option[value=' + convertSelectedToPizzaType +']').selected = true
+        // $('#pizza_types_dropdown_list option[value="'+convertSelectedToPizzaType+'"]').attr("selected", "selected");
+        $('#pizza_types_dropdown_list').prop('selectedIndex', convertSelectedToPizzaType);
+        console.log(convertSelectedToPizzaType, selectedPizzaId)
+    }else{
+        $('#crusts_dropdown_list').prop('selectedIndex', convertSelectedToPizzaType);
+        console.log(convertSelectedToPizzaType, selectedPizzaId)
+    }
+    
+}
+
+var getSelectedPizza = (selectedPizza) => {
+    switch (selectedPizza) {
+        case "popular_pizza_1":
+            // Love crust, we return 4 since it's for a diff list
+            return 4;
+        case "popular_pizza_2":
+            // BBQ chicken
+            return 2;
+        case "popular_pizza_3":
+            // Pepperoni
+            return 3;
+        case "popular_pizza_4":
+            // Hawaiian
+            return 6;
+        case "classic_pizza_1":
+            // Boerewors
+            return 1;
+        case "classic_pizza_2":
+            // Margharita
+            return 4;
+        case "classic_pizza_3":
+            // Beef steak
+            return 5;
+        case "classic_pizza_4":
+            // Veggie
+            return 7;
+        default:
+            return "";
+    }
+}
 
 function updateTotalBill (newTotal){
     document.getElementById("total_amt_string").innerHTML = newTotal;
@@ -331,15 +377,16 @@ function pizzaCrustOptions (pizzaSize){
     var firstItem = new listItem("0", "Choose a crust");
     var secondItem = new listItem("crispy_crust", "Crispy");
     var thirdItem = new listItem("thick_crust", "Thick");
-    var fourthItem = new listItem("stuffed_crust", "Stuffed");
-    var fifthItem = new listItem("thin_crust", "Thin");
-    var sixthItem = new listItem("gluten_free_crust", "Gluten free");
+    var fourthItem = new listItem("heart_crust", "Love crust")
+    var fifthItem = new listItem("stuffed_crust", "Stuffed");
+    var sixthItem = new listItem("thin_crust", "Thin");
+    var seventhItem = new listItem("gluten_free_crust", "Gluten free");
 
     let pizzaCrustCost = ""
 
     switch (pizzaSize) {
         case "0":
-            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem)
+            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem, seventhItem)
             
             return crustOptions;
         case "small_pizza":
@@ -353,7 +400,7 @@ function pizzaCrustOptions (pizzaSize){
             fifthItem.string += pizzaCrustCost
             sixthItem.string += pizzaCrustCost
 
-            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem)
+            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem, seventhItem)
             
             return crustOptions;
         case "medium_pizza":
@@ -365,7 +412,7 @@ function pizzaCrustOptions (pizzaSize){
             fifthItem.string += pizzaCrustCost
             sixthItem.string += pizzaCrustCost
 
-            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem)
+            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem, seventhItem)
             
             return crustOptions;
         case "large_pizza":
@@ -378,7 +425,7 @@ function pizzaCrustOptions (pizzaSize){
             fifthItem.string += pizzaCrustCost
             sixthItem.string += pizzaCrustCost
 
-            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem)
+            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem, seventhItem)
             
             return crustOptions;
         case "x_large_pizza":
@@ -390,11 +437,11 @@ function pizzaCrustOptions (pizzaSize){
             fifthItem.string += pizzaCrustCost
             sixthItem.string += pizzaCrustCost
 
-            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem)
+            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem, seventhItem)
             
             return crustOptions;
         default:
-            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem)
+            crustOptions.push(firstItem, secondItem, thirdItem, fourthItem, fifthItem, sixthItem, seventhItem)
             
             return crustOptions;
     }
