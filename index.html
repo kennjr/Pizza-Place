@@ -58,7 +58,7 @@
         <div id="popular_section_id">
             <h3>*****   Popular pizzas   *****</h3>
             <div class="popular_pizzas_items">
-                <div class="popular_pizza" id="popular_pizza_1">
+                <div class="popular_pizza" id="popular_pizza_1" onclick="navigateToOrderSection('popular_pizza_1')">
                     <div class="popular_pizza_img">
                         <img src="images/heart_pizza.jpeg" alt="Heart shaped pizza" width="300px" height="260px">
                     </div>
@@ -67,7 +67,7 @@
                         <p >This is a very popular one, grab one today and share it with someone you love (share the love with any toppings).<br><br><em>from Chef D.</em></p>
                     </div>
                 </div>
-                <div class="popular_pizza" id="popular_pizza_2">
+                <div class="popular_pizza" id="popular_pizza_2" onclick="navigateToOrderSection('popular_pizza_2')">
                     <div class="popular_pizza_img">
                         <img src="images/bbq_chicken_pizza.jpg" alt="BBQ chicken pizza" width="300px" height="260px">
                     </div>
@@ -76,7 +76,7 @@
                         <p>Some amazing chicken breast with bbq sauce and red onions sprinkled on top. Mmmhh!!<br>(Chef D's fav.)<br><br><em>from Chef D.</em></p>
                     </div>
                 </div>
-                <div class="popular_pizza" id="popular_pizza_3">
+                <div class="popular_pizza" id="popular_pizza_3" onclick="navigateToOrderSection('popular_pizza_3')">
                     <div class="popular_pizza_img">
                         <img src="images/pepperoni_pizza.jpg" alt="Pepperoni pizza" width="300px" height="260px">
                     </div>
@@ -85,7 +85,7 @@
                         <p>You can never go wrong with this one. Trying pizza for the first time ?If so Chef D recommends the pepperoni pizza<br><br><em>from Chef D.</em></p>
                     </div>
                 </div>
-                <div class="popular_pizza" id="popular_pizza_4">
+                <div class="popular_pizza" id="popular_pizza_4" onclick="navigateToOrderSection('popular_pizza_4')">
                     <div class="popular_pizza_img">
                         <img src="images/hawaiian_pizza.jpg" alt="Hawaiian pizza" width="300px" height="260px">
                     </div>
@@ -100,7 +100,7 @@
         <div id="classic_section_id">
             <h3>*****   Classic pizzas   *****</h3>
             <div class="popular_pizzas_items">
-                <div class="popular_pizza" id="classic_pizza_1">
+                <div class="popular_pizza" id="classic_pizza_1" onclick="navigateToOrderSection('classic_pizza_1')">
                     <div class="popular_pizza_img">
                         <img src="images/boerewors_pizza.jpg" alt="Boerewors pizza" width="300px" height="260px">
                     </div>
@@ -109,7 +109,7 @@
                         <p>An amazing pizza with toppings of sausage from the south of Africa and great sauce.(Africa's very own)<br><br><em>from Chef D.</em></p>
                     </div>
                 </div>
-                <div class="popular_pizza" id="classic_pizza_2">
+                <div class="popular_pizza" id="classic_pizza_2" onclick="navigateToOrderSection('classic_pizza_2')">
                     <div class="popular_pizza_img">
                         <img src="images/margharita_pizza.jpg" alt="Margharita pizza" width="300px" height="260px">
                     </div>
@@ -118,7 +118,7 @@
                         <p>With toppings meant to represent Italy's flag, the margharita is a real classic from the birth place of pizza.<br><br><em>from Chef D.</em></p>
                     </div>
                 </div>
-                <div class="popular_pizza" id="classic_pizza_3">
+                <div class="popular_pizza" id="classic_pizza_3" onclick="navigateToOrderSection('classic_pizza_3')">
                     <div class="popular_pizza_img">
                         <img src="images/beef_steak_pizza.jpeg" alt="Beef steak pizza" width="300px" height="260px">
                     </div>
@@ -127,7 +127,7 @@
                         <p>Pieces of steak all over the pizza with some bbq sacue(optional) and bell peppers are put together to make a great pizza.<br><br><em>from Chef D.</em></p>
                     </div>
                 </div>
-                <div class="popular_pizza" id="classic_pizza_4">
+                <div class="popular_pizza" id="classic_pizza_4" onclick="navigateToOrderSection('classic_pizza_4')">
                     <div class="popular_pizza_img">
                         <img src="images/veggie_pizza.jpg" alt="Veggie pizza" width="300px" height="260px">
                     </div>
@@ -141,7 +141,7 @@
         <div id="order_section_id">
             <div class="new_order_form_section">
                 <p id="new_order_text">New Order</p>
-                <form class="order_form">
+                <form class="order_form" id="order_form_id">
                     <label for="pizza_sizes_list">Pizza size :</label>
                     <select name="dropdown" class="dropdown_list" id="pizza_sizes_dropdown_list">
                         <option value="0">Choose a size for your pizza</option>
@@ -156,6 +156,7 @@
                         <option value="crispy_crust">Crispy</option>
                         <option value="stuffed_crust">Stuffed</option>
                         <option value="thin_crust">Thin</option>
+                        <option value="heart_crust">Love crust</option>
                         <option value="thick_crust">Thick</option>
                         <option value="gluten_free_crust">Gluten free</option>
                     </select>
