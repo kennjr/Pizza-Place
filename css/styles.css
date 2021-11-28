@@ -49,6 +49,13 @@
     text-align: center;
     align-items: center;
     justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.site_destinations_duo{
+    display: flex;
+    flex-direction: row;
 }
 
 /* styling links in the nav_bar */
@@ -203,6 +210,7 @@ to {opacity: 1}
     padding-left: 10px;
     padding-right: 10px;
 }
+
 
 #classic_section_id{
     display: flex;
@@ -388,8 +396,92 @@ to {opacity: 1}
     text-align: end;
 }
 
-#about_section_id{
+@media screen 
+  and (min-width: 360px) 
+  and (max-width: 640px)  {
+    .site_destinations{
+        margin-left: auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .site_destinations_duo{
+        display: flex;
+        flex-direction: row;
+    }
+    .popular_pizzas_items{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        
+    }
     
+    .popular_pizza_details{
+        width: 100%;
+    }
+    .home_section {
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .chef_img_section {
+        flex: 1;
+    }
+
+    /* The actual message from the chef */
+    #chefs_message{
+        font-size: 30px;
+        text-align: start;
+    }
+    
+    .messages_section {
+        border-color: transparent;
+        padding-left: 30px;
+        flex: 3;
+        border-width: 4px;
+        border-radius: 5px;
+        border-style: solid;
+        align-self: stretch;
+        text-align: start;
+        height: 50px;
+    }
+
+    .single_messages_container{
+        height: 250px;
+    }
+
+    /* We're aligning the items in this section vertically */
+    #order_section_id{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 50px;
+    }
+
+    /* We're giving the order form some margin at the bottom */
+    .new_order_form_section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: end;
+        padding: 20px;
+        background-color: #FFF;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        flex: 6;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+}
+
+
+#about_section_id{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 20px;
