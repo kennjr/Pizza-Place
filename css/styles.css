@@ -196,7 +196,7 @@ to {opacity: 1}
 .popular_pizza_img > img{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    width: 300px;
+    width: 100%;
 }
 
 .popular_pizza_details > p{
