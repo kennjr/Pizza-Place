@@ -183,7 +183,7 @@ to {opacity: 1}
     margin-top: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 300px;
+    
     border-radius: 5px;
     cursor: pointer;
     text-align: start;    
@@ -196,7 +196,7 @@ to {opacity: 1}
 .popular_pizza_img > img{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    
+    width: 300px;
 }
 
 .popular_pizza_details > p{
